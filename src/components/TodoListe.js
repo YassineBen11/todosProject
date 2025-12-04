@@ -30,9 +30,9 @@ export default function TodoList() {
 
     let showedTodos = todos
 
-    if(showedTodosType == "completed"){
+    if(showedTodosType === "completed"){
         showedTodos = completedTodos
-    }else if(showedTodosType == "not-completed"){
+    }else if(showedTodosType === "not-completed"){
         showedTodos = notCompletedTodos
     }else{
         showedTodos = todos
