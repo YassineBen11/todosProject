@@ -9,7 +9,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Todo from './ToDo';
 import { v4 as uuidv4 } from 'uuid';
 import { TodosContext } from '../contexts/todosContext';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect, useMemo } from 'react';
 
 
 
@@ -20,13 +20,19 @@ export default function TodoList() {
     const [showedTodosType , setShowedTodosType] =useState("all")
     const [newTask, setNewTask] = useState('');
     
-    const completedTodos = todos.filter((t) =>{
-        return t.checked
-    })
+    const completedTodos = useMemo(()=>
+        {
+        return todos.filter((t) =>{
+            return t.checked
+        })
+}, [todos]);
 
-    const notCompletedTodos = todos.filter((t) =>{
-        return !t.checked
-    })
+    const notCompletedTodos = useMemo(()=>
+        {
+        return todos.filter((t) =>{
+            return !t.checked
+        })
+}, [todos]);
 
     let showedTodos = todos
 
