@@ -20,11 +20,10 @@ export default function Todo({t}) {
 
     const [openDelete, setopenDelete] = useState(false);
     const [openEdit, setopenEdit] = useState(false);
-    const [updatedTodo , setUptadetTodo] = useState({title: t.title, details: t.details})
-
+    const [updatedTodo , setUpdatedTodo] = useState({title: t.title, details: t.details});
     const { todos, setTodos } = useContext(TodosContext);
 
-          //handelers:
+          //handlers:
 
   function handleDelete(id){
         const updatedTodos = todos.filter((todo) => todo.id !== id);
@@ -82,7 +81,6 @@ export default function Todo({t}) {
           </Button>
         </DialogActions>
       </Dialog>
-
           {/* update alert */}
         <Dialog
         open={openEdit}
@@ -106,7 +104,7 @@ export default function Todo({t}) {
               variant="standard"
               value={updatedTodo.title}
               onChange={(e) => {
-                setUptadetTodo({...updatedTodo,title: e.target.value})
+                setUpdatedTodo({...updatedTodo,title: e.target.value})
               }}
             />
             <TextField
@@ -120,7 +118,7 @@ export default function Todo({t}) {
               variant="standard"
               value={updatedTodo.details}
               onChange={(e) => {
-                setUptadetTodo({...updatedTodo,details: e.target.value})
+                setUpdatedTodo({...updatedTodo,details: e.target.value})
               }}
             />
           </DialogContentText>

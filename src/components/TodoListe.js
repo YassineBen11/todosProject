@@ -25,14 +25,14 @@ export default function TodoList() {
         return todos.filter((t) =>{
             return t.checked
         })
-}, [todos]);
+    }, [todos]);
 
     const notCompletedTodos = useMemo(()=>
         {
         return todos.filter((t) =>{
             return !t.checked
         })
-}, [todos]);
+    }, [todos]);
 
     let showedTodos = todos
 
